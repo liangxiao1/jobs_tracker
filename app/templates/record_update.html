@@ -1,0 +1,32 @@
+{% extends "header_v3.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block content %}
+<style>
+    .ns-resize {
+        cursor: ns-resize;
+    }
+
+    #report_table tr.header,
+    #report_table tr:hover {
+        background-color: #f1f1f1;
+
+    }
+</style>
+
+<div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well well-sm">
+                    <form class="form-horizontal" method="post" action="{{ url_for('main.record_update', taskid=taskid) }}">
+                        <fieldset>
+                            <legend class="text-center header">Update Record</legend>
+                            {{ wtf.quick_form(record_data_form,form_type="horizontal",horizontal_columns=('lg', 2, 4),action=url_for('main.record_update', taskid=taskid)) }}
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
