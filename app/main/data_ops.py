@@ -13,6 +13,7 @@ from forms import LoginForm, SearchForm_Record, NewTaskRecordForm, UpdateTaskRec
 from flask_login import LoginManager, login_user, login_required, current_user, UserMixin, logout_user
 
 from .db_class import TaskRecord, TaskCategory, TaskCategory, AppUser
+from datetime import datetime
 
 #from . import libs
 
@@ -100,7 +101,8 @@ def record_new():
         flash("Added successfully!",'info')
         return redirect(url_for('main.record_all'))
     record_data_form.username.data = username
-    record_data_form.create_date.data = ''
+    create_date = datetime.today().date()
+    record_data_form.create_date.data = create_date
     record_data_form.task_description.data = ''
     record_data_form.task_status.data = ''
     record_data_form.task_conclusion.data = ''
