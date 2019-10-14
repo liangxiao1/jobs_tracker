@@ -184,7 +184,7 @@ def record_update():
     record_data_form.id.data = record.id
     record_data_form.username.data = record.username
     record_data_form.create_date.data = record.create_date
-    task_categary = TaskCategory.query.filter_by(task_categary_id=taskid).first()
+    task_categary = TaskCategory.query.filter_by(task_categary_id=record.task_category).first()
     if task_categary is not None:
         record_data_form.task_category.data = task_categary.task_category_name
     #record_data_form.task_category.data = record.task_category
