@@ -1,8 +1,8 @@
-# report_view
-This project a lightweight report manage system for better log storing and tracking.
+# jobs_tracker
+This project a lightweight job recording system for better self task tracking.
 
 It supports below features:
-* define your own project display items
+* record daily works
 * quick search in current page or by items
 * user administration
 
@@ -16,5 +16,5 @@ Quick start:
 #python manager.py runserver -h 0.0.0.0 -p 8001
 ```
 You can http://IP:8001/initdb for init new db.
-Then you can access it via: http://IP:8001
+Then you can access it via: http://IP:8001/record_all
 
