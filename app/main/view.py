@@ -97,7 +97,7 @@ def record_all():
 
 
     if query_obj is not None:
-        filter_item = query_obj.like("%"+search_input+"%")
+        filter_item = query_obj.like("%"+search_input.strip(' ')+"%")
         pagination = TaskRecord.query.filter(and_(filter_item,TaskRecord.username==username)).order_by(
             TaskRecord.id.desc()).paginate(page, per_page=int(per_page), error_out=False)
     else:

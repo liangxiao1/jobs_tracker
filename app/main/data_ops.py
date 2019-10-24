@@ -301,7 +301,7 @@ def categary_all():
             return redirect(url_for('main.categary_all',username=username))
         else:
             select_item = search_form.select_item.data
-            search_input = search_form.search_input.data 
+            search_input = search_form.search_input.data
     else:
         select_item = request.args.get('select_item')
         search_input = request.args.get('search_input')
@@ -326,7 +326,7 @@ def categary_all():
         query_obj=TaskCategory.task_category_comments
 
     if query_obj is not None:
-        filter_item = query_obj.like("%"+search_input+"%")
+        filter_item = query_obj.like("%"+search_input.strip(' ')+"%")
         pagination = TaskCategory.query.filter(and_(filter_item)).order_by(
             TaskCategory.task_categary_id.desc()).paginate(page, per_page=int(per_page), error_out=False)
     else:
