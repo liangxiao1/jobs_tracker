@@ -101,15 +101,15 @@ def record_new():
         flash("Added successfully!",'info')
         return redirect(url_for('main.record_all'))
     record_data_form.username.data = username
-    create_date = datetime.today().date()
+    create_date = datetime.today().isoformat(' ')
     record_data_form.create_date.data = create_date
     record_data_form.task_description.data = ''
     record_data_form.task_status.data = ''
     record_data_form.task_conclusion.data = ''
     record_data_form.task_conclusion_comments.data = ''
     record_data_form.task_took_hours.data = ''
-    record_data_form.task_start_date.data = ''
-    record_data_form.task_end_date.data = ''
+    record_data_form.task_start_date.data = datetime.today().isoformat(' ')
+    record_data_form.task_end_date.data = datetime.today().isoformat(' ')
 
     return render_template('record_new.html',record_data_form=record_data_form,search_form=search_form)
 
